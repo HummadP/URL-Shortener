@@ -1,0 +1,67 @@
+<% const baseUrl=process.env.BASE_URL || 'http://localhost:8000' ; %>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/home.css">
+    </head>
+
+    <body>
+        <a href="/user/logout">
+            <button>Logout</button>
+        </a>
+        <h2>URL Shortener</h2>
+        <div>
+            <% if (locals.id) { %>
+                <div class="shortened-url">
+                    <p>URL Shortened: <a href="<%= baseUrl %>/url/<%= id %>" target="_blank" rel="noopener noreferrer">
+                            <%= baseUrl %>/url/<%= id %>
+                        </a>
+                    </p>
+                </div>
+                <% } %>
+                    <form method="POST" action="/url/">
+                        <label>Enter URL:</label>
+                        <input type="text" name="url" placeholder="https://example.com" />
+                        <button type="submit">Generate</button>
+                    </form>
+        </div>
+
+        <div>
+            <% if (locals.urls) { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr No.</th>
+                            <th>ShortID</th>
+                            <th>Redirect</th>
+                            <th>Clicks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% urls.forEach((url, index)=> { %>
+                            <tr>
+                                <td>
+                                    <%= index+1 %>
+                                </td>
+                                <td>
+                                    <%= url.shortID %>
+                                </td>
+                                <td>
+                                    <%= url.redirectURL %>
+                                </td>
+                                <td>
+                                    <%= url.visitHistory.length %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+                <% } %>
+        </div>
+    </body>
+
+    </html>
