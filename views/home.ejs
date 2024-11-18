@@ -10,10 +10,13 @@
     </head>
 
     <body>
-        <a href="/user/logout">
-            <button>Logout</button>
-        </a>
-        <h2>URL Shortener</h2>
+        <header>
+            <h2>URL Shortener</h2>
+            <a href="/user/logout">
+                <button>Logout</button>
+            </a>
+        </header>
+
         <div>
             <% if (locals.id) { %>
                 <div class="shortened-url">

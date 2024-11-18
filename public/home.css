@@ -148,7 +148,7 @@ tbody tr:hover {
 }
 
 
-a button {
+/* a button {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -170,4 +170,60 @@ a button:hover {
 
 a button:active {
     transform: translateY(1px);
+} */
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+h2 {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+}
+
+a button {
+    padding: 10px 20px;
+    background-color: #2575fc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+a button:hover {
+    background-color: #1a5bb8;
+    transform: translateY(-2px);
+}
+
+a button:active {
+    transform: translateY(1px);
+}
+
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    a button {
+        margin-top: 1rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
 }
